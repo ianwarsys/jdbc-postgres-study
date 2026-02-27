@@ -10,13 +10,15 @@ import db.DB;
 public class Program {
 
 	public static void main(String[] args) throws SQLException {
-		
+
+		System.out.println("TEstes");
+
 		Connection conn = DB.getConnection();
-	
+
 		Statement st = conn.createStatement();
-			
+
 		ResultSet rs = st.executeQuery("select * from tb_product");
-			
+
 		while (rs.next()) {
 			System.out.println(rs.getLong("Id") + ", " + rs.getString("Name"));
 		}
