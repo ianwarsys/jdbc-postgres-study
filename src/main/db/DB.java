@@ -2,6 +2,7 @@ package main.db;
 
 import javax.xml.crypto.Data;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -43,7 +44,7 @@ public class DB {
     }
 
     public static Properties loadProperties() {
-        try (FileInputStream fs = new FileInputStream("main/db.properties")) {
+        try (FileInputStream fs = new FileInputStream("src/main/db.properties")) {
             Properties props = new Properties();
             props.load(fs);
 
