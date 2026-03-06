@@ -3,16 +3,19 @@ package main.java.entities;
 import main.java.Status;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Order {
-    private Integer id;
-    private Integer latitude;
-    private Integer longitude;
+    private Long id;
+    private Double latitude;
+    private Double longitude;
     private Instant moment;
     private Status status;
 
-    public Order(Integer id, Integer latitude, Integer longitude, Instant moment, Status status) {
+    private final List<Product> products = new ArrayList<>();
+
+    public Order(Long id, Double latitude, Double longitude, Instant moment, Status status) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -20,27 +23,31 @@ public class Order {
         this.status = status;
     }
 
-    public Integer getId() {
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Integer latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public Integer getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(Integer longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 
@@ -58,5 +65,16 @@ public class Order {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", moment=" + moment +
+                ", status=" + status +
+                '}';
     }
 }
